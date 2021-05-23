@@ -10,7 +10,7 @@
                   <h2 class="title has-text-centered">Reset Password</h2>
                   @include('partials._notification')
 
-                  <form action="/password/reset" method="post">
+                  <form action="/password/email" method="post">
                     {{ csrfField() }}
                     <div class="field">
                         <label class="label">Email</label>
