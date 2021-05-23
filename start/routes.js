@@ -20,3 +20,6 @@ Route.get("/", "TestController.index").as("home");
 
 Route.get("/register", "Auth/RegisterController.showRegister");
 Route.post("/register", "Auth/RegisterController.register").as("register");
+Route.post("/logout", "Auth/LogoutController.logout").as("logout");
+Route.get("login", "Auth/LoginController.showLogin");
+Route.post("login", "Auth/LoginController.login").as("login");
