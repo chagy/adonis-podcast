@@ -1,0 +1,59 @@
+@layout('layouts.app')
+
+@section('content')
+    @set('title','Register')
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4 is-offset-4">
+                    <h2 class="title has-text-centered">Register, It's free!</h2>
+                    <form action="{{ route('register') }}" method="post">
+                        {{ csrfField() }}
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input 
+                                    type="text" 
+                                    name="name" 
+                                    id="name" 
+                                    class="input {{ hasErrorFor('name') ? 'is-danger' : '' }}" 
+                                    value="{{ old('name','') }}">
+                            </div>
+                            {{ elIf('<span class="help is-danger">$self</span>', getErrorFor('name'), hasErrorFor('name')) }}
+                        </div>
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input 
+                                    type="text" 
+                                    name="email" 
+                                    id="email" 
+                                    class="input {{ hasErrorFor('email') ? 'is-danger' : '' }}" 
+                                    value="{{ old('email','') }}">
+                            </div>
+                            {{ elIf('<span class="help is-danger">$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
+                        </div>
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control">
+                                <input 
+                                    type="password" 
+                                    name="password" 
+                                    id="password" 
+                                    class="input {{ hasErrorFor('password') ? 'is-danger' : '' }}" >
+                            </div>
+                            {{ elIf('<span class="help is-danger">$self</span>', getErrorFor('password'), hasErrorFor('password')) }}
+                        </div>
+                        <div class="control">
+                            <button type="submit" class="button is-primary is-fullwidth">Create Account</button>
+                        </div>
+                    </form>
+                    <div class="has-text-centered" style="margin-top: 20px">
+                        Already got an account? <a href="/login">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
